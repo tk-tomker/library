@@ -48,6 +48,6 @@ try {
     );
     $stmt->execute();
     $stmt->closeCursor();
-    echo("tblbooks created")
-};
+    echo("tblbooks created");
+}
 ?>
