@@ -52,4 +52,8 @@ try {
     $stmt->closeCursor();
     echo("tblbooks created");
 }
+catch(PDOException $e)
+{
+    echo $sql . "<br>" . $e->getMessage();
+}
 ?>
