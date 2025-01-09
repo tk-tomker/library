@@ -10,11 +10,7 @@ try {
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     $sql = "CREATE DATABASE IF NOT EXISTS Library";
     $conn->exec($sql);
-    //next 3 lines optional only needed really if you want to go on an do more SQL here!
-    $sql = "USE Library";
-    $conn->exec($sql);
-    echo "DB created successfully"; 
-
+    
     $stmt = $conn->prepare("DROP TABLE IF EXISTS tblpupils;
     CREATE TABLE tblpupils
     (pupilid INT(4) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
