@@ -1,9 +1,39 @@
-CREATE TABLE tblpupils 
-(UserID INT(4) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-Gender VARCHAR(1) NOT NULL,
-Surname VARCHAR(20) NOT NULL,
-Forename VARCHAR(20) NOT NULL,
-Password VARCHAR(20) NOT NULL,
-House VARCHAR(20) NOT NULL,
-Year  INT(2) NOT NULL,
-Role  TINYINT(1));
+<?php
+include_once("connection.php");
+$stmt = $conn->prepare("DROP TABLE IF EXISTS tblpupils;
+CREATE TABLE tblpupils
+(pupilid INT(4) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+surname VARCHAR(20) NOT NULL,
+forename VARCHAR(20) NOT NULL,
+year INT(2) NOT NULL,
+house VARCHAR(20) NOT NULL)"
+);
+$stmt->execute();
+$stmt->closeCursor();
+echo("tblpupils created");
+ 
+$stmt = $conn->prepare("DROP TABLE IF EXISTS tblhouse;
+CREATE TABLE tblhouse
+(house VARCHAR(20) UNSIGNED PRIMARY KEY,
+email VARCHAR(50) NOT NULL,
+hsm VARCHAR(20) NOT NULL)"
+);
+$stmt->execute();
+$stmt->closeCursor();
+echo("tblhouse created");
+ 
+$stmt = $conn->prepare("DROP TABLE IF EXISTS tblbooks;
+CREATE TABLE tblbooks
+(bookid INT(4) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+author VARCHAR(50) NOT NULL,
+title VARCHAR(50) NOT NULL, 
+length INT(4) NOT NULL,
+status  VARCHAR(10) NOT NULL,
+genre VARCHAR(20) NOT NULL,
+dateadded VARCHAR(20) NOT NULL,
+)"
+);
+$stmt->execute();
+$stmt->closeCursor();
+echo("tblbooks created")
+?>
