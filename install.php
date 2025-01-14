@@ -1,5 +1,15 @@
 <?php
-include_once("connection.php");
+$servername = "localhost";
+$username = "root";
+$password = "";
+
+$conn = new PDO("mysql:host=$servername", $username, $password);
+$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+$sql = "CREATE DATABASE IF NOT EXISTS Library";
+$conn->exec($sql);
+$sql = "USE Library";
+$conn->exec($sql);
+
 $stmt = $conn->prepare("DROP TABLE IF EXISTS tblpupils;
 CREATE TABLE tblpupils
 (pupilid INT(4) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
