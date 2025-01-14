@@ -24,7 +24,7 @@ echo("tblpupils created");
 
 $stmt = $conn->prepare("DROP TABLE IF EXISTS tblhouse;
 CREATE TABLE tblhouse
-(house VARCHAR(20) UNSIGNED PRIMARY KEY,
+(house VARCHAR(20)  PRIMARY KEY,
 email VARCHAR(50) NOT NULL,
 hsm VARCHAR(20) NOT NULL)"
 );
@@ -40,7 +40,7 @@ title VARCHAR(50) NOT NULL,
 length INT(4) NOT NULL,
 status  VARCHAR(10) NOT NULL,
 genre VARCHAR(20) NOT NULL,
-dateadded VARCHAR(20) NOT NULL,
+dateadded VARCHAR(20) NOT NULL
 )"
 );
 $stmt->execute();
