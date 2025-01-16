@@ -26,7 +26,9 @@
     <input type="radio" name="role" value="Admin"> Admin<br> -->
     <input type="submit" value="Add User">
     <h2>Add House</h2>
-    House:<input name="addhouse">
+    House:<input type="text" name="house"><br>
+    Hsm:<input type="text" name="hsm"><br>
+    Emai:<inout type="text" name="email"><br>
     </form>
 
   <h2>Current users</h2>
