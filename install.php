@@ -46,5 +46,4 @@ dateadded VARCHAR(20) NOT NULL
 $stmt->execute();
 $stmt->closeCursor();
 echo("tblbooks created");
-
 ?>
