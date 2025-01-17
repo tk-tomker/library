@@ -15,12 +15,8 @@ $stmt->bindParam(':year', $_POST["year"]);
 $stmt->bindParam(':house', $_POST["house"]);
 $stmt->execute();
 
-$stmt = $conn->prepare("INSERT INTO tblhouse (house,hsm,email)
-VALUES (:house, :hsm, :email)"):
-$stmt->bindParam(':house', $_POST["house"]);       
-$stmt->bindParam(':hsm', $_POST["hsm"]);
-$stmt->bindParam(':email',$_POST["email"]);
-$stmt->execute();
+$conn->null;
+
 
 $conn=null;
 
