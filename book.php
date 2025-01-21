@@ -1,7 +1,7 @@
 <form action="addbook.php" method ="post" >
-  Book ID:<input type="number" name="bookid"><br>
   Author:<input type="text" name="author"><br>
-  No. Of Pages:<input type="n" name="booklength"><br>
+  Title: <input type="text" name="title"><br>
+  No. Of Pages:<input type="number" name="booklength"><br>
   Status:<select name="bookstatus">
         <option value="in">In Library</option>
         <option value="out">On Loan</option>
