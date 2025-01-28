@@ -53,11 +53,10 @@
         </div>
         <div class="collapse navbar-collapse" id="myNavbar">
             <ul class="nav navbar-nav navbar-right">
-              <li class="active"><a href="https://www.w3schools.com/bootstrap/bootstrap_ref_comp_navs.asp">ABOUT</a></li>
-              <li><a href="#services">SERVICES</a></li>
-              <li><a href="#portfolio">PORTFOLIO</a></li>
-              <li><a href="#pricing">PRICING</a></li>
+              <li class="active"><a>HOME</a></li>
+              <li><a href="#books">BOOKS</a></li>
               <li><a href="#contact">CONTACT</a></li>
+              <li><a href="#login">LOGIN</a></li>
             </ul>
         </div>
     </div>
