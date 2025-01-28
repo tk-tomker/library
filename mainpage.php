@@ -14,7 +14,7 @@
 </style>
 
 <body>
-    
+<?php include 'navbar.php'; ?>
     <div class="jumbotron">
     <h1>Bootstrap Tutorial</h1>
     <p>Bootstrap is the most popular HTML, CSS, and JS framework for developing responsive,
@@ -24,3 +24,4 @@
         <img src="
     </div>
 </body>
+
