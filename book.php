@@ -13,7 +13,7 @@
         <option value="action">Action</option>
     </select><br>
   <!-- Add genres table to pick from -->
-  Today's Date:<input type="text" name="dateadded"><br>
+  Today's Date:<input type="date" name="dateadded"><br>
   <!--Creates a drop down list-->
   <br>
 
