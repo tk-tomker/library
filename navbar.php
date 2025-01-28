@@ -53,10 +53,10 @@
         </div>
         <div class="collapse navbar-collapse" id="myNavbar">
             <ul class="nav navbar-nav navbar-right">
-              <li class="active"><a>HOME</a></li>
+              <li class="active"><a herf=mainpage.php>HOME</a></li>
               <li><a href="#books">BOOKS</a></li>
               <li><a href="#contact">CONTACT</a></li>
-              <li><a href="#login">LOGIN</a></li>
+              <li><a href="signin.php">LOGIN</a></li>
             </ul>
         </div>
     </div>
