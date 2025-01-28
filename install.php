@@ -15,6 +15,9 @@ CREATE TABLE tblpupils
 (pupilid INT(4) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
 surname VARCHAR(20) NOT NULL,
 forename VARCHAR(20) NOT NULL,
+username VARCHAR(30) NOT NULL,
+role VARCHAR(20) NOT NULL,
+password VARCHAR(20) NOT NULL,
 year INT(2) NOT NULL,
 house VARCHAR(20) NOT NULL
 )"
@@ -53,7 +56,8 @@ CREATE TABLE tblloans
 (loanid INT(4) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
 pupilid INT(4) NOT NULL,
 bookid INT(4) NOT NULL,
-bookstatus VARCHAR(10) NOT NULL
+returned VARCHAR(10) NOT NULL,
+date VARCHAR(20) NOT NULL
 )"
 );
 $stmt->execute();

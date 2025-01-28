@@ -9,6 +9,10 @@
 <form action="adduser.php" method="POST" id="derek">
     First name:<input type="text" name="forename"><br>
     Last name:<input type="text" name="surname"><br>
+    <input type="radio" name="role" value="Pupil" checked> User<br>
+    <input type="radio" name="role" value="Admin"> Admin<br>
+    Username:<input type="text" name="username"><br>
+    Password:<input type="text" name="password"><br>
     House:<select name="house">
             <?php
             include_once("connection.php"); // Your database connection file
@@ -36,6 +40,7 @@
         </select>
     <br>
     <input type="submit" name="action" value="Add User">
+
 </form>
     
 <form action="addhouse.php" method="POST">
