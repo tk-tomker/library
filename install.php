@@ -16,7 +16,8 @@ CREATE TABLE tblpupils
 surname VARCHAR(20) NOT NULL,
 forename VARCHAR(20) NOT NULL,
 year INT(2) NOT NULL,
-house VARCHAR(20) NOT NULL)"
+house VARCHAR(20) NOT NULL
+)"
 );
 $stmt->execute();
 $stmt->closeCursor();
@@ -46,4 +47,16 @@ dateadded VARCHAR(20) NOT NULL
 $stmt->execute();
 $stmt->closeCursor();
 echo("tblbooks created");
+
+$stmt = $conn->prepare("DROP TABLE IF EXISTS tblloans;
+CREATE TABLE tblloans
+(loanid INT(4) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+pupilid INT(4) NOT NULL,
+bookid INT(4) NOT NULL,
+bookstatus VARCHAR(10) NOT NULL
+)"
+);
+$stmt->execute();
+$stmt->closeCursor();
+echo("tblloans created");
 ?>
