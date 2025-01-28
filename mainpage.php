@@ -22,4 +22,6 @@
     <div class="container">
     </div>
 </body>
+
+
 <?php include 'navbar.php'; ?>
