@@ -38,9 +38,17 @@
   border-color: transparent;
   color: #fff !important;
 }
+
+.modal:before {
+  content: '';
+  display: inline-block;
+  height: 25%;
+  vertical-align: middle;
+  margin-right: -4px; /* Adjusts for spacing */
+}
 </style>
 
-<body>
+<body >
 <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container">
         <div class="navbar-header">
@@ -56,9 +64,39 @@
               <li class="active"><a herf=mainpage.php>HOME</a></li>
               <li><a href="#books">BOOKS</a></li>
               <li><a href="#contact">CONTACT</a></li>
-              <li><a href="signin.php">LOGIN</a></li>
+              <li>
+                    <a href="#" data-toggle="modal" data-target="#myModal">
+                        <span class="glyphicon glyphicon-info-sign"></span>LOGIN
+                    </a>
+                </li>
+              <!-- <li><a href="signin.php">LOGIN</a></li> -->
             </ul>
         </div>
     </div>
 </nav>
+
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Modal Header</h4>
+      </div>
+      <div class="modal-body">
+      <form action="validate.php" method= "POST">
+         Username:<input type="text" name="Username"><br>
+         Password:<input type="password" name="password"><br>
+         <input type="submit" value="Login" class="btn btn-primary">
+      </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
 </body>
