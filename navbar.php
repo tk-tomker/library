@@ -85,9 +85,9 @@
         <h4 class="modal-title">Modal Header</h4>
       </div>
       <div class="modal-body">
-      <form action="validate.php" method= "POST">
-         Username:<input type="text" name="Username"><br>
-         Password:<input type="password" name="password"><br>
+      <form action="loginprocess.php" method= "POST">
+         Username:<input type="text" name="Username" required><br>
+         Password:<input type="password" name="password" required><br>
          <input type="submit" value="Login" class="btn btn-primary">
       </form>
       </div>
