@@ -68,7 +68,7 @@
                 <?php
                 session_start();
                 if (!isset($_SESSION["pupilid"])){
-                    echo "<li><a href='#LOGIN' data-toggle='modal' data-target='#myModal'><span class='glyphicon glyphicon-info-sign'></span>LOGIN</a></li>"
+                    echo "<li><a href='#LOGIN' data-toggle='modal' data-target='#myModal'><span class='glyphicon glyphicon-info-sign'></span>LOGIN</a></li>";
                 } else{
                     $role = $_SESSION["role"];
                     $forename = $_SESSION["forename"];
