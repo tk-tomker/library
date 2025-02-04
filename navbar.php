@@ -76,6 +76,9 @@
                     if ($role == 0){
                         echo "<li><a href='#ME'>" . $forename . "</a></li>";
                     }
+                    elseif ($role == 1){
+                        echo "<li><a href='#ADMIN'>Adminpage</a></li>"
+                    }
                 }
 
                 ?>
