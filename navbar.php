@@ -49,22 +49,33 @@
 </style>
 
 <body >
+
 <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
             <a class="navbar-brand" href="#">Logo</a>
         </div>
         <div class="collapse navbar-collapse" id="myNavbar">
             <ul class="nav navbar-nav navbar-right">
-              <li class="active"><a herf=mainpage.php>HOME</a></li>
-              <li><a href="#books">BOOKS</a></li>
-              <li><a href="#contact">CONTACT</a></li>
-              <li>
+                <li class="active"><a herf=mainpage.php>HOME</a></li>
+                <li><a href="#books">BOOKS</a></li>
+                <li><a href="#contact">CONTACT</a></li>
+                <?php
+                session_start();
+                if (!isset($_SESSION["pupilid"])){
+                    $role = 0
+                } else{
+                    $role = $_SESSION["role"]
+                }
+                if ($role == 0){
+                    echo "<li><a href='#' data-toggle='modal' data-target='#myModal'><span class='glyphicon glyphicon-info-sign'></span>LOGIN</a></li>"
+                }
+                <li>
                     <a href="#" data-toggle="modal" data-target="#myModal">
                         <span class="glyphicon glyphicon-info-sign"></span>LOGIN
                     </a>
@@ -76,27 +87,25 @@
 </nav>
 
 <div id="myModal" class="modal fade" role="dialog">
-  <div class="modal-dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Modal Header</h4>
+            </div>
+            <div class="modal-body">
+                <form action="loginprocess.php" method= "POST">
+                    Username:<input type="text" name="Username" required><br>
+                    Password:<input type="password" name="password" required><br>
+                    <input type="submit" value="Login" class="btn btn-primary">
+                </form>
+            </div>
+            <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
 
-    <!-- Modal content-->
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Modal Header</h4>
-      </div>
-      <div class="modal-body">
-      <form action="loginprocess.php" method= "POST">
-         Username:<input type="text" name="Username" required><br>
-         Password:<input type="password" name="password" required><br>
-         <input type="submit" value="Login" class="btn btn-primary">
-      </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-      </div>
     </div>
-
-  </div>
 </div>
 
 </body>

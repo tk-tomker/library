@@ -5,14 +5,18 @@
     $stmt = $conn->prepare("SELECT * FROM tblpupils WHERE Username =:username ;" );
     $stmt->bindParam(':username', $_POST["Username"]);
     $stmt->execute();
+
     while ($row = $stmt->fetch(PDO::FETCH_ASSOC))
     {
         if($row['password']== $_POST['password']){
 
             echo("login complete");
-            // header('Location: mainpage.php');
+            session_start();
             $role = $row["role"];
-            echo($role);
+            $pupilid = $row["pupilid"]
+            $_SESSION["role"] = $role
+            $_SEEION["pupilid"] = $pupilid
+            header('Location: mainpage.php');
             
         }
         else{
