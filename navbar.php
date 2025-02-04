@@ -70,11 +70,11 @@
                 if (!isset($_SESSION["pupilid"])){
                     echo "<li><a href='#LOGIN' data-toggle='modal' data-target='#myModal'><span class='glyphicon glyphicon-info-sign'></span>LOGIN</a></li>"
                 } else{
-                    $role = $_SESSION["role"]
-                    $forename = $_SESSION["forename"]
+                    $role = $_SESSION["role"];
+                    $forename = $_SESSION["forename"];
                 }
                 if ($role == 0){
-                    echo "<li><a href='#ME'>" . $forename . "</a></li>"
+                    echo "<li><a href='#ME'>" . $forename . "</a></li>";
                 }
 
                 ?>
