@@ -72,9 +72,10 @@
                 } else{
                     $role = $_SESSION["role"];
                     $forename = $_SESSION["forename"];
-                }
-                if ($role == 0){
-                    echo "<li><a href='#ME'>" . $forename . "</a></li>";
+
+                    if ($role == 0){
+                        echo "<li><a href='#ME'>" . $forename . "</a></li>";
+                    }
                 }
 
                 ?>
