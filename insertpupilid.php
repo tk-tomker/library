@@ -15,10 +15,12 @@ if ($_SERVER["REQUEST_METHOD"] =="POST"){
         die("Connection failed: " . $conn->connect_error);
     }
 
-    $user_id = $_SESSION['pupilid']; // Retrieve the session variable
+    $pupil = $_SESSION['pupilid']; // Retrieve the session variable
+    $book_id = $_SESSION['bookid'];
 
     // Insert the session variable into the SQL table
-    $sql = "INSERT INTO tblloans (pupilid) VALUES ('$user_id')";
+    $sql = "INSERT INTO tblloans (pupilid, bookid) VALUES ('$pupil', '$book_id')";
+    
 
     if ($conn->query($sql) === TRUE) {
         $_SESSION['message'] = "Book Loan Successfully ✅";

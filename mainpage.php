@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 
 <style>
@@ -18,15 +20,16 @@
 <body>
 <?php include 'navbar.php'; ?>
     <div class="jumbotron" align="center">
-    <h1>Library</h1>
-    <p>A place where you can get books</p>
+        <h1>Library</h1>
+        <p>Books available here</p>
     </div>
     <div class="container">
         <img src="">
     </div>
 
-<div class="books" >
-    <form action="insertpupilid.php" method="post">
+    <div class="loanbooks" align="center">
+    <h2>Loan a Book</h2>
+    <form action="insertpupilid.php" method="post" class="form">
         Choose Book to Loan:
         <select name="booktoloan">
         <?php
@@ -48,7 +51,9 @@
         ?>
         </select>
         <br>
-        <input type="submit" name="submit" value="Loan Book">
+        <br>
+        
+        <input type="submit" name="submit" value="Loan Book" class="btn">
     <!-- Display the message if it's set -->
         <?php
         if (isset($_SESSION['message'])) {
@@ -57,7 +62,13 @@
             // Clear the message after displaying it
             unset($_SESSION['message']);
         }
-?>
+        ?>
+    </div>
+
+<div class="viewloans" align="center">
+        <h2>Current Loans</h2>
+
+</div>
     
     </form>
 </div>
