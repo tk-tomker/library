@@ -21,12 +21,15 @@ if ($_SERVER["REQUEST_METHOD"] =="POST"){
     $sql = "INSERT INTO tblloans (pupilid) VALUES ('$user_id')";
 
     if ($conn->query($sql) === TRUE) {
+        $_SESSION['message'] = "Book Loan Successfully ✅";
     } else {
         echo "Error: " . $sql . "<br>" . $conn->error;
     }
 
     $conn->close();
-    echo "Book Loaned Successfuly ✅";
+
     header("Location: mainpage.php");
+    exit();
+
 }
 ?>

@@ -49,6 +49,15 @@
         </select>
         <br>
         <input type="submit" name="submit" value="Loan Book">
+    <!-- Display the message if it's set -->
+        <?php
+        if (isset($_SESSION['message'])) {
+         // Display the message in an alert box
+            echo '<div class="alert alert-success" role="alert">' . $_SESSION['message'] . '</div>';
+            // Clear the message after displaying it
+            unset($_SESSION['message']);
+        }
+?>
     
     </form>
 </div>
