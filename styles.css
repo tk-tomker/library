@@ -1,0 +1,69 @@
+body{
+    
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    
+}
+
+h1, h2, h3, p, form{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+form{
+    font-size: large;
+}
+
+.jumbotron{
+    color: aquamarine;
+    margin-bottom: 0px;
+
+}
+
+.alert{
+    margin: 15px;
+}
+
+select, option{
+    background-color: #0000ff52;
+    border-radius: 20px;
+}
+
+select:hover, option:hover{
+    background-color: #00ccffbe;
+}
+
+.btn {
+    background: #5E5DF0;
+    border-radius: 999px;
+    box-shadow: #5E5DF0 0 10px 20px -10px;
+    box-sizing: border-box;
+    color: #FFFFFF;
+    cursor: pointer;
+    font-family: Inter,Helvetica,"Apple Color Emoji","Segoe UI Emoji",NotoColorEmoji,"Noto Color Emoji","Segoe UI Symbol","Android Emoji",EmojiSymbols,-apple-system,system-ui,"Segoe UI",Roboto,"Helvetica Neue","Noto Sans",sans-serif;
+    font-size: 25px; !important
+    font-weight: 700;
+    line-height: 24px;
+    opacity: 1;
+    outline: 0 solid transparent;
+    padding: 8px 18px;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    width: fit-content;
+    word-break: break-word;
+    border: 0;
+  }
+
+  .loanbooks{
+    padding: 30px;
+    
+    background-color: #2970db5d;
+  }
+
+  .viewloans{
+    padding: 30px;
+    margin: 10px;
+    margin-top: 0px;
+    margin-left: 0px;
+    margin-right: 0px;
+    background-color: #29b1db65;
+  }

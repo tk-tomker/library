@@ -56,7 +56,7 @@
                 <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">Logo</a>
+            <a class="navbar-brand" href="#"><span class="glyphicon glyphicon-book"></span> Library</a>
         </div>
         <div class="collapse navbar-collapse" id="myNavbar">
             <ul class="nav navbar-nav navbar-right">
@@ -77,6 +77,9 @@
                     elseif ($role == 1){
                         echo "<li><a href='userandhouse.php'>ADMINPAGE</a></li><li><a href='logout.php'>LOGOUT</a></li>";
                     }
+
+                    //log out button
+                    echo "<li><a href='logout.php'><span class='glyphicon glyphicon-log-out'></span> LOGOUT</a></li>";
                 }
 
                 ?>
