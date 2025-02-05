@@ -1,6 +1,5 @@
 <?php
 if ($_SERVER["REQUEST_METHOD"] =="POST"){
-    echo "Loan button clicked";
 
     session_start();
 
@@ -22,11 +21,12 @@ if ($_SERVER["REQUEST_METHOD"] =="POST"){
     $sql = "INSERT INTO tblloans (pupilid) VALUES ('$user_id')";
 
     if ($conn->query($sql) === TRUE) {
-        echo "New record created successfully";
     } else {
         echo "Error: " . $sql . "<br>" . $conn->error;
     }
 
     $conn->close();
+    echo "Book Loaned Successfuly ✅";
+    header("Location: mainpage.php");
 }
 ?>
