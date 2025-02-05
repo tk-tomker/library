@@ -1,4 +1,3 @@
-
 <?php
     include_once ("connection.php");
     array_map("htmlspecialchars", $_POST);
@@ -12,19 +11,17 @@
 
             echo("login complete");
             session_start();
-            $role = $row["role"];
-            $pupilid = $row["pupilid"];
-            $forename = $row["forename"];
-            $_SESSION["role"] = $role;
-            $_SESSION["pupilid"] = $pupilid;
-            $_SESSION["forename"] = $forename;
+            session_set_cookie_params(0);
+            $_SESSION["role"] = $row["role"];
+            $_SESSION["pupilid"] = $row["pupilid"];
+            $_SESSION["forename"] = $row["forename"];
             header('Location: mainpage.php');
             
         }
         else{
-
-            echo("login failed");
-            // header('Location: signin.php');
+            session_start();
+            $_SESSION['login_error'] = "Invalid username or password.";
+            header('Location: mainpage.php');
         }
     }
     $conn=null;

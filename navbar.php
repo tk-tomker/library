@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Oundle School Library</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
 
@@ -44,12 +44,10 @@
   display: inline-block;
   height: 25%;
   vertical-align: middle;
-  margin-right: -4px; /* Adjusts for spacing */
+  margin-right: -4px;
 }
 </style>
-
-<body >
-
+<body>
 <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container">
         <div class="navbar-header">
@@ -72,18 +70,14 @@
                 } else{
                     $role = $_SESSION["role"];
                     $forename = $_SESSION["forename"];
-
                     if ($role == 0){
-                        echo "<li><a href='#ME'>" . $forename . "</a></li>";
+                        echo "<li><a href='#ME'>" . $forename;
                     }
                     elseif ($role == 1){
-                        echo "<li><a href='#ADMIN'>Adminpage</a></li>";
+                        echo "<li><a href='userandhouse.php'>ADMINPAGE</a></li>";
                     }
-
-                    //log out button
                     echo "<li><a href='logout.php'><span class='glyphicon glyphicon-log-out'></span> LOGOUT</a></li>";
                 }
-
                 ?>
             </ul>
         </div>
@@ -98,6 +92,12 @@
                 <h4 class="modal-title">Modal Header</h4>
             </div>
             <div class="modal-body">
+                <?php
+                    if (isset($_SESSION['login_error'])) {
+                        echo "<div class='alert alert-danger'>" . $_SESSION['login_error'] . "</div>";
+                        unset($_SESSION['login_error']);
+                    }
+                ?>
                 <form action="loginprocess.php" method= "POST">
                     Username:<input type="text" name="Username" required><br>
                     Password:<input type="password" name="password" required><br>
