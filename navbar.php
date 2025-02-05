@@ -44,7 +44,7 @@
   display: inline-block;
   height: 25%;
   vertical-align: middle;
-  margin-right: -4px; /* Adjusts for spacing */
+  margin-right: -4px;
 }
 </style>
 <body>
@@ -70,18 +70,14 @@
                 } else{
                     $role = $_SESSION["role"];
                     $forename = $_SESSION["forename"];
-
                     if ($role == 0){
-                        echo "<li><a href='#ME'>" . $forename . "</a></li><li><a href='logout.php'>LOGOUT</a></li>";
+                        echo "<li><a href='#ME'>" . $forename;
                     }
                     elseif ($role == 1){
-                        echo "<li><a href='userandhouse.php'>ADMINPAGE</a></li><li><a href='logout.php'>LOGOUT</a></li>";
+                        echo "<li><a href='userandhouse.php'>ADMINPAGE</a></li>";
                     }
-
-                    //log out button
                     echo "<li><a href='logout.php'><span class='glyphicon glyphicon-log-out'></span> LOGOUT</a></li>";
                 }
-
                 ?>
             </ul>
         </div>
