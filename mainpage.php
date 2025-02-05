@@ -29,8 +29,8 @@
 
     <div class="loanbooks" align="center">
     <h2>Loan a Book</h2>
-    <form action="insertpupilid.php" method="post" class="form">
-        Choose Book to Loan:
+    <form action="insertpupilid.php" method="POST" class="form">
+        <label for="booktitle">Choose Book to Loan:</label>
         <select name="booktoloan">
         <?php
 
@@ -38,12 +38,12 @@
 
             try {
                 // Query to fetch options from the database
-                $stmt = $conn->prepare("SELECT title FROM tblbooks WHERE bookstatus ='in' order by title asc");
+                $stmt = $conn->prepare("SELECT bookid, title FROM tblbooks WHERE bookstatus ='in' order by title asc");
                 $stmt->execute();
 
                 // Loop through the results and generate <option> elements
                 while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-                    echo "<option value='" . htmlspecialchars($row['title']) . "'>" . htmlspecialchars($row['title']) . "</option>";
+                    echo "<option value='" . $row['bookid'] . "'>" . htmlspecialchars($row['title']) . "</option>";
                 }
             } catch (PDOException $e) {
                 echo "Error fetching options: " . $e->getMessage();
