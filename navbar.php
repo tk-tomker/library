@@ -79,6 +79,9 @@
                     elseif ($role == 1){
                         echo "<li><a href='#ADMIN'>Adminpage</a></li>";
                     }
+
+                    //log out button
+                    echo "<li><a href='logout.php'><span class='lyphicon glyphicon-log-out'></span> LOGOUT</a></li>";
                 }
 
                 ?>

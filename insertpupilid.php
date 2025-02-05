@@ -1,6 +1,6 @@
 <?php
 if ($_SERVER["REQUEST_METHOD"] =="POST"){
-    echo "Loan button clicked"
+    echo "Loan button clicked";
 
     session_start();
 
@@ -8,7 +8,7 @@ if ($_SERVER["REQUEST_METHOD"] =="POST"){
     $servername = "localhost";
     $username = "root";
     $password = "";
-    $dbname = "tblloans";
+    $dbname = "library";
 
     $conn = new mysqli($servername, $username, $password, $dbname);
 

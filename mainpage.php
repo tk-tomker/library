@@ -13,6 +13,8 @@
 
 </style>
 
+
+
 <body>
 <?php include 'navbar.php'; ?>
     <div class="jumbotron" align="center">
@@ -23,9 +25,10 @@
         <img src="">
     </div>
 
-<div class="books" href="#books">
-    <form action="????Possibly books?????.php">
-        Choose Book to Loan:<select name="booktoloan">
+<div class="books" >
+    <form action="insertpupilid.php" method="post">
+        Choose Book to Loan:
+        <select name="booktoloan">
         <?php
 
             include_once("connection.php"); // Your database connection file
@@ -43,6 +46,7 @@
                 echo "Error fetching options: " . $e->getMessage();
             }
         ?>
+        </select>
         <br>
         <input type="submit" name="submit" value="Loan Book">
     
