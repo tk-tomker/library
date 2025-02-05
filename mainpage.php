@@ -79,6 +79,9 @@
 
 <div class="viewloans" align="center">
         <h2>Current Loans</h2>
+        <?php
+        echo "need to select the loan id of all records in tblloans where pupilid = the session variable pupilid. Then display titles which correpsond with the bookid in tblbooks";
+        ?>
 
 </div>
     
