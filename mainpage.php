@@ -55,14 +55,26 @@
         
         <input type="submit" name="submit" value="Loan Book" class="btn">
     <!-- Display the message if it's set -->
-        <?php
-        if (isset($_SESSION['message'])) {
-         // Display the message in an alert box
-            echo '<div class="alert alert-success" role="alert">' . $_SESSION['message'] . '</div>';
-            // Clear the message after displaying it
-            unset($_SESSION['message']);
-        }
+    <?php if (isset($_SESSION['message'])): ?>
+    <div id="success-message" class="alert alert-success" role="alert">
+        <?php 
+            echo $_SESSION['message']; 
+            unset($_SESSION['message']); // Remove message after displaying
         ?>
+    </div>
+
+    <!-- JavaScript to hide the message after 3 seconds -->
+    <script>
+        setTimeout(function() {
+            var message = document.getElementById("success-message");
+            if (message) {
+                message.style.transition = "opacity 0.5s ease";
+                message.style.opacity = "0";
+                setTimeout(() => message.remove(), 500); // Fully remove element after fade-out
+            }
+        }, 3000); // 3000ms = 3 seconds
+    </script>
+<?php endif; ?>
     </div>
 
 <div class="viewloans" align="center">
