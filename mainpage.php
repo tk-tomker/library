@@ -32,7 +32,7 @@
 
             try {
                 // Query to fetch options from the database
-                $stmt = $conn->prepare("SELECT title FROM tblbooks WHERE bookstatus ='in'");
+                $stmt = $conn->prepare("SELECT title FROM tblbooks WHERE bookstatus ='in' order by title asc");
                 $stmt->execute();
 
                 // Loop through the results and generate <option> elements
@@ -44,31 +44,8 @@
             }
         ?>
         <br>
-        <input type="submit" value="Loan Book">
-        <?php
-        session_start();
-
-        // Assume you have already created a connection to your database
-        $servername = "localhost";
-        $username = "root";
-        $password = "";
-        $dbname = "tblloans";
-
-        $conn = new mysqli($servername, $username, $password, $dbname);
-
-        if ($conn->connect_error) {
-            die("Connection failed: " . $conn->connect_error);
-        
-        $user_id = $_SESSION['pupilid'];
-        $sql = "INSERT INTO tblloans (pupilid) VALUES ('$pupilid')";
-        if ($conn->query($sql) === TRUE){
-            echo "New record created successfully";
-        } else {
-            echo "Error: ". $sql . "<br>" . $conn->error;
-
-        }
-
-        $conn->close();
+        <input type="submit" name="submit" value="Loan Book">
+    
     </form>
 </div>
 </body>
