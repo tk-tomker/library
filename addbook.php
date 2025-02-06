@@ -24,6 +24,6 @@ $stmt->bindParam(':dateadded', $_POST["dateadded"]);
 $stmt->execute();
 
 $conn=null;
-echo "Book successfully added to the database!";
+header("Location:book.php")
 
 ?>
