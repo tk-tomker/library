@@ -13,7 +13,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         die("Connection failed: " . $conn->connect_error);
     }
 
-    // ✅ STEP 1: Get bookid from form submission
     if (isset($_POST['booktoloan']) && !empty($_POST['booktoloan'])) {
         $bookid = $_POST['booktoloan'];
     } else {
@@ -24,17 +23,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     echo "DEBUG: Received Book ID = " . $bookid . "<br>"; // Debugging Line
 
-    // ✅ STEP 2: Ensure the user is logged in
     if (isset($_SESSION['pupilid'])) {
         $pupil = $_SESSION['pupilid'];
         echo "DEBUG: Pupil ID = " . $pupil . "<br>"; // Debugging Line
 
-        // ✅ STEP 3: Insert the loan record
         $sql = "INSERT INTO tblloans (pupilid, bookid) VALUES (?, ?)";
         $stmt = $conn->prepare($sql);
         $stmt->bind_param("ii", $pupil, $bookid);  // Ensure bookid & pupilid are integers
 
-        if ($stmt->execute()) {
+        if ($stmt->execute()){
+            $update_sql = "UPDATE tblbook SET bookstatus ='out' WHERE bookid = ?";
+            $update_stmt = $conn->prepare($update_sql);
+            $update_stmt->bind-param("i", $bookid);
+
+        }
+
+        if ($update_stmt->execute()) {
             $_SESSION['message'] = "Book Loan Successful ✅";
         } else {
             $_SESSION['message'] = "Error inserting loan: " . $stmt->error;
@@ -45,7 +49,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $_SESSION['message'] = "You must be logged in to loan a book.";
     }
 
-    // ✅ STEP 4: Redirect back to the main page
     header("Location: mainpage.php");
     exit();
 }
