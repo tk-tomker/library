@@ -7,25 +7,20 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 
 <style>
-
-.container-fluid {
-    padding: 60px 50px;
-}
-.bg-grey {
-    background-color: #f6f6f6;
-}
 </style>
 <body>
 <?php include 'navbar.php';?>
 <br>
 <div class="container-fluid">
     <div class="row">
-        <div class="col-sm-6" align="center">
-            <h2>Add User</h2>
+        <div class="col-sm-4 bg" align="center">
             <form action="adduser.php" method="POST" align="center">
+                <h2>Add User</h2>
                 First name:<input type="text" name="forename"><br>
                 Last name:<input type="text" name="surname"><br>
                 <input type="radio" name="role" value="Pupil" checked> User<br>
@@ -61,7 +56,7 @@
 
             </form>
         </div>
-        <div class="col-sm-6">
+        <div class="col-sm-4" align="center">
             <form action="addhouse.php" method="POST" align="center">
                 <h2>Add House</h2>
                 House:<input type="text" name="house"><br>

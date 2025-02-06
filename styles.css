@@ -67,3 +67,9 @@ select:hover, option:hover{
     margin-right: 0px;
     background-color: #29b1db65;
   }
+  .container-fluid {
+    padding: 60px 50px;
+  }
+  .bg-grey {
+    background-color: #f6f6f6;
+}

@@ -46,6 +46,7 @@
   vertical-align: middle;
   margin-right: -4px;
 }
+
 </style>
 <body>
 <?php 
