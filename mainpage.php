@@ -29,8 +29,8 @@
 
     <div class="loanbooks" align="center">
     <h2>Loan a Book</h2>
-    <form action="insertpupilid.php" method="post" class="form">
-        Choose Book to Loan:
+    <form action="insertpupilid.php" method="POST" class="form">
+        <label for="booktitle">Choose Book to Loan:</label>
         <select name="booktoloan">
         <?php
 
@@ -38,12 +38,12 @@
 
             try {
                 // Query to fetch options from the database
-                $stmt = $conn->prepare("SELECT title FROM tblbooks WHERE bookstatus ='in' order by title asc");
+                $stmt = $conn->prepare("SELECT bookid, title FROM tblbooks WHERE bookstatus ='in' order by title asc");
                 $stmt->execute();
 
                 // Loop through the results and generate <option> elements
                 while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-                    echo "<option value='" . htmlspecialchars($row['title']) . "'>" . htmlspecialchars($row['title']) . "</option>";
+                    echo "<option value='" . $row['bookid'] . "'>" . htmlspecialchars($row['title']) . "</option>";
                 }
             } catch (PDOException $e) {
                 echo "Error fetching options: " . $e->getMessage();
@@ -55,18 +55,33 @@
         
         <input type="submit" name="submit" value="Loan Book" class="btn">
     <!-- Display the message if it's set -->
-        <?php
-        if (isset($_SESSION['message'])) {
-         // Display the message in an alert box
-            echo '<div class="alert alert-success" role="alert">' . $_SESSION['message'] . '</div>';
-            // Clear the message after displaying it
-            unset($_SESSION['message']);
-        }
+    <?php if (isset($_SESSION['message'])): ?>
+    <div id="success-message" class="alert alert-success" role="alert">
+        <?php 
+            echo $_SESSION['message']; 
+            unset($_SESSION['message']); // Remove message after displaying
         ?>
+    </div>
+
+    <!-- JavaScript to hide the message after 3 seconds -->
+    <script>
+        setTimeout(function() {
+            var message = document.getElementById("success-message");
+            if (message) {
+                message.style.transition = "opacity 0.5s ease";
+                message.style.opacity = "0";
+                setTimeout(() => message.remove(), 500); // Fully remove element after fade-out
+            }
+        }, 3000); // 3000ms = 3 seconds
+    </script>
+<?php endif; ?>
     </div>
 
 <div class="viewloans" align="center">
         <h2>Current Loans</h2>
+        <?php
+        echo "need to select the loan id of all records in tblloans where pupilid = the session variable pupilid. Then display titles which correpsond with the bookid in tblbooks";
+        ?>
 
 </div>
     
