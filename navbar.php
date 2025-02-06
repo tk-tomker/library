@@ -48,6 +48,10 @@
 }
 </style>
 <body>
+<?php 
+session_start(); 
+$current_page = basename($_SERVER['PHP_SELF']); 
+?>
 <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container">
         <div class="navbar-header">
@@ -60,11 +64,8 @@
         </div>
         <div class="collapse navbar-collapse" id="myNavbar">
             <ul class="nav navbar-nav navbar-right">
-                <li class="active"><a herf=mainpage.php>HOME</a></li>
-                <li><a href="#books">BOOKS</a></li>
-                <li><a href="#contact">CONTACT</a></li>
+                <li><a href="mainpage.php">HOME</a></li>
                 <?php
-                session_start();
                 if (!isset($_SESSION["pupilid"])){
                     echo "<li><a href='#LOGIN' data-toggle='modal' data-target='#myModal'><span class='glyphicon glyphicon-info-sign'></span>LOGIN</a></li>";
                 } else{
@@ -95,7 +96,6 @@
                 <?php
                     if (isset($_SESSION['login_error'])) {
                         echo "<div class='alert alert-danger'>" . $_SESSION['login_error'] . "</div>";
-                        unset($_SESSION['login_error']);
                     }
                 ?>
                 <form action="loginprocess.php" method= "POST">
@@ -111,5 +111,11 @@
 
     </div>
 </div>
-
+<script>
+$(document).ready(function(){
+    <?php if(isset($_SESSION['login_error'])): ?>
+        $("#myModal").modal("show");
+    <?php unset($_SESSION['login_error']); endif; ?>
+});
+</script>
 </body>

@@ -18,7 +18,7 @@
 
 
 <body>
-<?php include 'navbar.php'; ?>
+<?php include 'navbar.php';?>
     <div class="jumbotron" align="center">
         <h1>Library</h1>
         <p>Books available here</p>
