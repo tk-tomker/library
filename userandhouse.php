@@ -11,14 +11,12 @@
     <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 
-<style>
-</style>
 <body>
 <?php include 'navbar.php';?>
 <br>
 <div class="container-fluid">
     <div class="row">
-        <div class="col-sm-4 bg" align="center">
+        <div class="col-sm-6 bg-blue" align="center">
             <form action="adduser.php" method="POST" align="center">
                 <h2>Add User</h2>
                 First name:<input type="text" name="forename"><br>
@@ -53,10 +51,10 @@
                 </select>
                 <br>
                 <input type="submit" name="action" value="Add User">
-
             </form>
         </div>
-        <div class="col-sm-4" align="center">
+        
+        <div class="col-sm-6" align="center">
             <form action="addhouse.php" method="POST" align="center">
                 <h2>Add House</h2>
                 House:<input type="text" name="house"><br>
@@ -67,14 +65,6 @@
         </div>
     </div> 
 </div>
-    
-<form action="addhouse.php" method="POST" align="center">
-    <h2>Add House</h2>
-    House:<input type="text" name="house"><br>
-    Hsm:<input type="text" name="hsm"><br>
-    Email:<input type="email" name="email"><br>
-    <input type="submit" value="Add House">
-</form>
 
 <h2 align="center">Current users</h2>
 <p align="center">

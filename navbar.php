@@ -98,6 +98,9 @@ $current_page = basename($_SERVER['PHP_SELF']);
                     if (isset($_SESSION['login_error'])) {
                         echo "<div class='alert alert-danger'>" . $_SESSION['login_error'] . "</div>";
                     }
+                    elseif (isset($_SESSION['message'])) {
+                        echo "<div class='alert alert-danger'>" . $_SESSION['message'] . "</div>";
+                    }
                 ?>
                 <form action="loginprocess.php" method= "POST">
                     Username:<input type="text" name="Username" required><br>
@@ -114,9 +117,9 @@ $current_page = basename($_SERVER['PHP_SELF']);
 </div>
 <script>
 $(document).ready(function(){
-    <?php if(isset($_SESSION['login_error'])): ?>
+    <?php if(isset($_SESSION['login_error']) || isset($_SESSION['message'])): ?>
         $("#myModal").modal("show");
-    <?php unset($_SESSION['login_error']); endif; ?>
+    <?php unset($_SESSION['login_error']); unset($_SESSION['message']);endif; ?>
 });
 </script>
 </body>
