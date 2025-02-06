@@ -75,7 +75,7 @@ $current_page = basename($_SERVER['PHP_SELF']);
                         echo "<li><a href='#ME'>" . $forename;
                     }
                     elseif ($role == 1){
-                        echo "<li><a href='userandhouse.php'>ADMINPAGE</a></li>";
+                        echo "<li><a href='userandhouse.php'>ADMINPAGE</a></li><li><a href='book.php'>BOOKS</a></li>";
                     }
                     echo "<li><a href='logout.php'><span class='glyphicon glyphicon-log-out'></span> LOGOUT</a></li>";
                 }
