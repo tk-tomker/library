@@ -82,6 +82,37 @@
         <?php
         echo "need to select the loan id of all records in tblloans where pupilid = the session variable pupilid. Then display titles which correpsond with the bookid in tblbooks";
         ?>
+        <br>
+        <br>
+        <form action="insertpupilid.php" method="POST" class="form">
+        <label for="booktitle">Choose Book to Return:</label>
+        
+        <select name="booktoloan">
+        <?php
+
+            include_once("connection.php"); // Your database connection file
+            session_start();
+            $pupil = $_SESSION['pupilid'];
+            try {
+                // Query to fetch options from the database
+                $stmt = $conn->prepare("SELECT tblbooks.title as bktitle,  tblpupils.forename as fn FROM tblloans 
+        INNER JOIN tblbooks ON tblbooks.bookid = tblloans.bookid 
+        INNER JOIN tblpupils ON tblpupils.pupilid = tblloans.pupilid 
+        WHERE  tblpupils.pupilid=$pupil;");
+
+                // Loop through the results and generate <option> elements
+                while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                    echo "<option value='" . $row['bookid'] . "'>" . htmlspecialchars($row['title']) . "</option>";
+                }
+            } catch (PDOException $e) {
+                echo "Error fetching options: " . $e->getMessage();
+            }
+        ?>
+        </select>
+        <br>
+        <br>
+        
+        <input type="submit" name="submit" value="Loan Book" class="btn">
 
 </div>
     
