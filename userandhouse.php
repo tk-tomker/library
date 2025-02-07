@@ -16,7 +16,7 @@
 <br>
 <div class="container-fluid">
     <div class="row">
-        <div class="col-sm-6 bg-blue" align="center">
+        <div class="col-sm-6" align="center">
             <form action="adduser.php" method="POST" align="center">
                 <h2>Add User</h2>
                 First name:<input type="text" name="forename"><br>
@@ -66,22 +66,26 @@
     </div> 
 </div>
 
-<h2 align="center">Current users</h2>
-<p align="center">
-    <?php
-    include_once("connection.php");
-    try {
-        $stmt = $conn->prepare("SELECT forename, surname FROM tblpupils");
-        $stmt->execute();
-        while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-            echo htmlspecialchars($row["forename"]) . " " . htmlspecialchars($row["surname"]) . "<br>";
+<div class="container-fluid">
+    <div class="col-sm-6">
+        <h2 align="center">Current users</h2>
+        <p align="center">
+        <?php
+        include_once("connection.php");
+        try {
+            $stmt = $conn->prepare("SELECT forename, surname FROM tblpupils");
+            $stmt->execute();
+            while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                echo htmlspecialchars($row["forename"]) . " " . htmlspecialchars($row["surname"]) . "<br>";
+            }
+        } 
+        catch (PDOException $e) {
+            echo "Error retrieving users: " . $e->getMessage();
         }
-    } 
-    catch (PDOException $e) {
-        echo "Error retrieving users: " . $e->getMessage();
-    }
-    ?>
-</p>
+        ?>
+        </p>
+    </div>
+</div>
 
 <h2 align="center">Current Houses</h2>
 <p align="center">

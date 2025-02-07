@@ -34,4 +34,10 @@
 
   <input type="submit" value="Add Book">
 </form>
+<div class="bg-blue" align="center">
+  <?php
+  include_once("connection.php"); // Your database connection file
+
+  ?>
+</div>
 </body>
