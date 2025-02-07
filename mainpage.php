@@ -29,7 +29,7 @@
 
     <div class="loanbooks" align="center">
     <h2>Loan a Book</h2>
-    <form action="insertpupilid.php" method="POST" class="form">
+    <form action="loanbook.php" method="POST" class="form">
         <label for="booktitle">Choose Book to Loan:</label>
         <select name="booktoloan">
         <?php
@@ -54,6 +54,7 @@
         <br>
         
         <input type="submit" name="submit" value="Loan Book" class="btn">
+        </form>
     <!-- Display the message if it's set -->
     <?php if (isset($_SESSION['message'])): ?>
     <div id="success-message" class="alert alert-success" role="alert">
@@ -84,7 +85,7 @@
         ?>
         <br>
         <br>
-        <form method="POST" class="form">
+        <form action="returnbook.php" method="POST" class="form">
         <label for="booktitle">Choose Book to Return:</label>
         
         <select name="booktoreturn">
@@ -106,8 +107,7 @@
         INNER JOIN tblbooks ON tblbooks.bookid = tblloans.bookid 
         INNER JOIN tblpupils ON tblpupils.pupilid = tblloans.pupilid 
         WHERE  tblpupils.pupilid=$pupil;");
-            $stmt->execute()
-;
+            $stmt->execute();
             $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
             if (empty($rows)){
                 echo "<p>No Book(s) on Loan.</p>";
@@ -122,11 +122,12 @@
             }
         ?>
         </select>
+        
         <br>
         <br>
         
         <input type="submit" name="submit" value="Return Book" class="btn">
-
+        </form>
 </div>
     
     </form>

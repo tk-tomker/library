@@ -13,8 +13,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         exit();
     }
 
-    echo "DEBUG: Received Book ID = " . $bookid . "<br>"; // Debugging Line
-
     if (isset($_SESSION['pupilid'])) {
         $pupil = $_SESSION['pupilid'];
         echo "DEBUG: Pupil ID = " . $pupil . "<br>"; // Debugging Line
@@ -23,7 +21,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $stmt = $conn->prepare($sql);
         $stmt->bindParam(':pup', $pupil);
         $stmt->bindParam(':book', $bookid);
-      
+    }
 
         if ($stmt->execute()){
             $update_sql = "UPDATE tblbooks SET bookstatus ='out' WHERE bookid = :bid";
@@ -45,5 +43,5 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     header("Location: mainpage.php");
     exit();
-}
+
 ?>
