@@ -8,12 +8,31 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link rel="stylesheet" href="styles.css">
 </head>
 
 <style>
+table {
+    width: 70%;
+    margin-bottom: 50px;
+}
 
+td, th {
+    margin: 5px;
+    border: 1px solid black;
+}
+th {
+        background-color:rgba(0, 255, 242, 0.64);
+    }
+    tr:nth-child(even) {
+        background-color:rgba(0, 81, 255, 0.5);
+    }
+    tr:hover {
+        background-color: rgba(0, 255, 242, 0.28);
+    }
+    
 </style>
+
 
 
 
@@ -80,9 +99,6 @@
 
 <div class="viewloans" align="center">
         <h2>Current Loans</h2>
-        <?php
-        // "need to select the loan id of all records in tblloans where pupilid = the session variable pupilid. Then display titles which correpsond with the bookid in tblbooks"
-        ?>
         <br>
         <br>
         <form action="returnbook.php" method="POST" class="form">
@@ -130,6 +146,56 @@
         </form>
 </div>
     
+<div class="catalog" align="center">
+    <h2>Our Catalog</h2>
+    <br>
+    <br>
+    
+    <table>
+        <thead>
+            <tr>
+                <th>Book ID</th>
+                <th>Author</th>
+                <th>Title</th>
+                <th>Book Length</th>
+                <th>Book Status</th>
+                <th>Genre</th>
+                <th>Date Added</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php
+            include_once("connection.php");
+
+            $stmt = $conn->prepare("SELECT bookid, author, title, booklength, bookstatus, genre, dateadded FROM tblbooks");
+            $stmt->execute();
+
+            while ($row = $stmt->fetch(PDO::FETCH_ASSOC))
+            {
+                echo '<tr>';
+                echo '<td>' . $row['bookid'] . '</td>';
+                echo '<td>' . $row['author'] . '</td>';
+                echo '<td>' . $row['title'] . '</td>';
+                echo '<td>' . $row['booklength'] . '</td>';
+                echo '<td>' . $row['bookstatus'] . '</td>';
+                echo '<td>' . $row['genre'] . '</td>';
+                echo '<td>' . $row['dateadded'] . '</td>';
+                echo '<td>' . $row['genre'] . '</td>';
+                echo "</tr>"; 
+                echo '</tr>';
+            }
+            ?>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </tbody>
+    </table>
+
+
+</div>
+
 </div>
 </body>
 
