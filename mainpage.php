@@ -20,6 +20,10 @@ table {
 td, th {
     margin: 5px;
     border: 1px solid black;
+    text-align: center;
+}
+thead{
+    text-align: center;
 }
 th {
         background-color:rgba(0, 255, 242, 0.64);
@@ -154,10 +158,10 @@ th {
     <table>
         <thead>
             <tr>
-                <th>Book ID</th>
+            
                 <th>Author</th>
                 <th>Title</th>
-                <th>Book Length</th>
+                <th>Book Length (pages)</th>
                 <th>Book Status</th>
                 <th>Genre</th>
                 <th>Date Added</th>
@@ -173,14 +177,13 @@ th {
             while ($row = $stmt->fetch(PDO::FETCH_ASSOC))
             {
                 echo '<tr>';
-                echo '<td>' . $row['bookid'] . '</td>';
                 echo '<td>' . $row['author'] . '</td>';
                 echo '<td>' . $row['title'] . '</td>';
                 echo '<td>' . $row['booklength'] . '</td>';
                 echo '<td>' . $row['bookstatus'] . '</td>';
                 echo '<td>' . $row['genre'] . '</td>';
                 echo '<td>' . $row['dateadded'] . '</td>';
-                echo '<td>' . $row['genre'] . '</td>';
+                
                 echo "</tr>"; 
                 echo '</tr>';
             }
