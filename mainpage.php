@@ -81,7 +81,7 @@
 <div class="viewloans" align="center">
         <h2>Current Loans</h2>
         <?php
-        echo "need to select the loan id of all records in tblloans where pupilid = the session variable pupilid. Then display titles which correpsond with the bookid in tblbooks";
+        // "need to select the loan id of all records in tblloans where pupilid = the session variable pupilid. Then display titles which correpsond with the bookid in tblbooks"
         ?>
         <br>
         <br>
@@ -103,10 +103,10 @@
             
             try {
                 // Query to fetch options from the database
-                $stmt = $conn->prepare("SELECT tblbooks.title as bktitle,  tblpupils.forename as fn FROM tblloans 
+                $stmt = $conn->prepare("SELECT DISTINCT tblbooks.title as bktitle,  tblpupils.forename as fn, tblbooks.bookid as bookid FROM tblloans 
         INNER JOIN tblbooks ON tblbooks.bookid = tblloans.bookid 
         INNER JOIN tblpupils ON tblpupils.pupilid = tblloans.pupilid 
-        WHERE  tblpupils.pupilid=$pupil;");
+        WHERE  tblpupils.pupilid=$pupil AND tblbooks.bookstatus = 'out';");
             $stmt->execute();
             $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
             if (empty($rows)){
@@ -130,7 +130,6 @@
         </form>
 </div>
     
-    </form>
 </div>
 </body>
 

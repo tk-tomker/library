@@ -21,14 +21,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $stmt = $conn->prepare($sql);
         $stmt->bindParam(':pup', $pupil);
         $stmt->bindParam(':book', $bookid);
+        $stmt->execute();
     }
 
+        
         if ($stmt->execute()){
             $update_sql = "UPDATE tblbooks SET bookstatus ='out' WHERE bookid = :bid";
             $update_stmt = $conn->prepare($update_sql);
             $update_stmt->bindparam(":bid", $bookid);
-
         }
+
+       
 
         if ($update_stmt->execute()) {
             $_SESSION['message'] = "Book Loan Successful ✅";
