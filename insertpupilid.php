@@ -40,7 +40,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
        # $stmt->close();
     } else {
-        $_SESSION['message'] = "You must be logged in to loan a book.";
+        $_SESSION['message1'] = "You must be logged in to loan a book.";
     }
 
     header("Location: mainpage.php");
