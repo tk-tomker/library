@@ -84,7 +84,7 @@
         ?>
         <br>
         <br>
-        <form action="insertpupilid.php" method="POST" class="form">
+        <form method="POST" class="form">
         <label for="booktitle">Choose Book to Return:</label>
         
         <select name="booktoloan">
