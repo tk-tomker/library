@@ -13,12 +13,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
     //change bookstatus to out
     if (isset($_SESSION['bookid'])) {
-        if ($stmt->execute()){
-            $update_sql = "UPDATE tblbooks SET bookstatus ='in' WHERE bookid = $bookid";
-            $update_stmt = $conn->prepare($update_sql);
-            $update_stmt->bindparam(":bid", $bookid);
+        $sql = "UPDATE tblloans SET returned = 'Yes' WHERE bookid = $bookid; 
+        UPDATE tblbooks SET bookstatus = 'in' WHERE bookid = $bookid;"
+
+        $sql = "DELETE FROM tblloans WHERE bookstatus = 'in'";
 
         }}
 
-    }
+    
 ?>
