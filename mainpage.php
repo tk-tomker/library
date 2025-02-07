@@ -87,23 +87,36 @@
         <form method="POST" class="form">
         <label for="booktitle">Choose Book to Return:</label>
         
-        <select name="booktoloan">
+        <select name="booktoreturn">
         <?php
 
             include_once("connection.php"); // Your database connection file
-            session_start();
+            session_start(); // Ensure session is started
+
+            if (!isset($_SESSION['pupilid'])) {
+                die("Error: Pupil ID is not set in the session.");
+            }
+
             $pupil = $_SESSION['pupilid'];
+
+            
             try {
                 // Query to fetch options from the database
                 $stmt = $conn->prepare("SELECT tblbooks.title as bktitle,  tblpupils.forename as fn FROM tblloans 
         INNER JOIN tblbooks ON tblbooks.bookid = tblloans.bookid 
         INNER JOIN tblpupils ON tblpupils.pupilid = tblloans.pupilid 
         WHERE  tblpupils.pupilid=$pupil;");
-
-                // Loop through the results and generate <option> elements
-                while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-                    echo "<option value='" . $row['bookid'] . "'>" . htmlspecialchars($row['title']) . "</option>";
+            $stmt->execute()
+;
+            $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            if (empty($rows)){
+                echo "<p>No Book(s) on Loan.</p>";
+            } else {
+                foreach ($rows as $row){
+                    echo "<option value='" . $row['bookid'] . "'>" . htmlspecialchars($row['bktitle']) . "</option>";
                 }
+            }
+
             } catch (PDOException $e) {
                 echo "Error fetching options: " . $e->getMessage();
             }
@@ -112,7 +125,7 @@
         <br>
         <br>
         
-        <input type="submit" name="submit" value="Loan Book" class="btn">
+        <input type="submit" name="submit" value="Return Book" class="btn">
 
 </div>
     
