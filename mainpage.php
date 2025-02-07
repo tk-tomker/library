@@ -15,6 +15,7 @@
 table {
     width: 70%;
     margin-bottom: 50px;
+    font-weight: bold;
 }
 
 td, th {
@@ -201,4 +202,3 @@ th {
 
 </div>
 </body>
-
