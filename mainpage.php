@@ -12,29 +12,29 @@
 </head>
 
 <style>
-table {
-    width: 70%;
-    margin-bottom: 50px;
-    font-weight: bold;
-}
+    table {
+        width: 70%;
+        margin-bottom: 50px;
+        font-weight: bold;
+    }
 
-td, th {
-    margin: 5px;
-    border: 1px solid black;
-    text-align: center;
-}
-thead{
-    text-align: center;
-}
-th {
-        background-color:rgba(0, 255, 242, 0.64);
+    td, th {
+        margin: 5px;
+        border: 2px solid black;
+        text-align: center;
     }
-    tr:nth-child(even) {
-        background-color:rgba(0, 81, 255, 0.5);
+    thead{
+        text-align: center;
     }
-    tr:hover {
-        background-color: rgba(0, 255, 242, 0.28);
-    }
+    th {
+            background-color:rgba(0, 255, 242, 0.64);
+        }
+        tr:nth-child(even) {
+            background-color:rgba(0, 81, 255, 0.5);
+        }
+        tr:hover {
+            background-color: rgba(0, 255, 242, 0.28);
+        }
     
 </style>
 
@@ -52,41 +52,42 @@ th {
     </div>
 
     <div class="loanbooks" align="center">
-    <h2>Loan a Book</h2>
-    <form action="loanbook.php" method="POST" class="form">
-        <label for="booktitle">Choose Book to Loan:</label>
-        <select name="booktoloan">
-        <?php
+        <h2>Loan a Book</h2>
+        <form action="loanbook.php" method="POST" class="form">
+            <label for="booktitle">Choose Book to Loan:</label>
+            <select name="booktoloan">
+            <?php
 
-            include_once("connection.php"); // Your database connection file
+                include_once("connection.php"); // Your database connection file
 
-            try {
-                // Query to fetch options from the database
-                $stmt = $conn->prepare("SELECT bookid, title FROM tblbooks WHERE bookstatus ='in' order by title asc");
-                $stmt->execute();
+                try {
+                    // Query to fetch options from the database
+                    $stmt = $conn->prepare("SELECT bookid, title FROM tblbooks WHERE bookstatus ='in' order by title asc");
+                    $stmt->execute();
 
-                // Loop through the results and generate <option> elements
-                while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-                    echo "<option value='" . $row['bookid'] . "'>" . htmlspecialchars($row['title']) . "</option>";
+                    // Loop through the results and generate <option> elements
+                    while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                        echo "<option value='" . $row['bookid'] . "'>" . htmlspecialchars($row['title']) . "</option>";
+                    }
+                } catch (PDOException $e) {
+                    echo "Error fetching options: " . $e->getMessage();
                 }
-            } catch (PDOException $e) {
-                echo "Error fetching options: " . $e->getMessage();
-            }
-        ?>
-        </select>
-        <br>
-        <br>
-        
-        <input type="submit" name="submit" value="Loan Book" class="btn">
-        </form>
-    <!-- Display the message if it's set -->
-    <?php if (isset($_SESSION['message'])): ?>
-    <div id="success-message" class="alert alert-success" role="alert">
-        <?php 
-            echo $_SESSION['message']; 
-            unset($_SESSION['message']); // Remove message after displaying
-        ?>
-    </div>
+            ?>
+            </select>
+            <br>
+            <br>
+            
+            <input type="submit" name="submit" value="Loan Book" class="btn">
+            </form>
+        <!-- Display the message if it's set -->
+        <?php if (isset($_SESSION['message'])): ?>
+    
+        <div id="success-message" class="alert alert-success" role="alert">
+            <?php 
+                echo $_SESSION['message']; 
+                unset($_SESSION['message']); // Remove message after displaying
+            ?>
+        </div>
 
     <!-- JavaScript to hide the message after 3 seconds -->
     <script>
@@ -112,8 +113,8 @@ th {
         <select name="booktoreturn">
         <?php
 
-            include_once("connection.php"); // Your database connection file
-            session_start(); // Ensure session is started
+            include_once("connection.php");
+            session_start(); 
 
             if (!isset($_SESSION['pupilid'])) {
                 die("Error: Pupil ID is not set in the session.");
@@ -159,9 +160,8 @@ th {
     <table>
         <thead>
             <tr>
-            
-                <th>Author</th>
                 <th>Title</th>
+                <th>Author</th>
                 <th>Book Length (pages)</th>
                 <th>Book Status</th>
                 <th>Genre</th>
@@ -170,16 +170,14 @@ th {
         </thead>
         <tbody>
             <?php
-            include_once("connection.php");
-
             $stmt = $conn->prepare("SELECT bookid, author, title, booklength, bookstatus, genre, dateadded FROM tblbooks");
             $stmt->execute();
 
             while ($row = $stmt->fetch(PDO::FETCH_ASSOC))
             {
                 echo '<tr>';
-                echo '<td>' . $row['author'] . '</td>';
                 echo '<td>' . $row['title'] . '</td>';
+                echo '<td>' . $row['author'] . '</td>';
                 echo '<td>' . $row['booklength'] . '</td>';
                 echo '<td>' . $row['bookstatus'] . '</td>';
                 echo '<td>' . $row['genre'] . '</td>';
