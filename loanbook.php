@@ -7,7 +7,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if (isset($_POST['booktoloan']) && !empty($_POST['booktoloan'])) {
         $bookid = $_POST['booktoloan'];
-    } else {
+    }
+    else {
         $_SESSION['message'] = "Error: No book selected.";
         header("Location: mainpage.php");
         exit();
@@ -22,7 +23,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $stmt->bindParam(':pup', $pupil);
         $stmt->bindParam(':book', $bookid);
         $stmt->execute();
-    }
+    
 
         
         if ($stmt->execute()){
@@ -40,10 +41,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
 
        # $stmt->close();
-    } else {
+    } 
+    
+    else {
         $_SESSION['message1'] = "You must be logged in to loan a book.";
     }
-
+}
     header("Location: mainpage.php");
     exit();
 
