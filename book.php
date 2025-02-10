@@ -14,8 +14,8 @@
 <body>
 <?php include 'navbar.php';?>
 <form action="addbook.php" method ="post" >
-  Author:<input type="text" name="author"><br>
   Title: <input type="text" name="title"><br>
+  Author:<input type="text" name="author"><br>
   No. Of Pages:<input type="number" name="booklength"><br>
   Status:<select name="bookstatus">
         <option value="in">In Library</option>
@@ -26,6 +26,13 @@
   Genre:<select name="genre">
         <option value="mystery">Mystery</option>
         <option value="action">Action</option>
+        <option value="horror">Horror</option>
+        <option value="history">History</option>
+        <option value="romance">Romance</option>
+        <option value="scifi">Sci-Fi</option>
+        <option value="crimefiction">Crime Fiction</option>
+        <option value="western">Western</option>
+        <option value="cookbook">Cookbook</option>
     </select><br>
   <!-- Add genres table to pick from -->
   Today's Date:<input type="date" name="dateadded"><br>

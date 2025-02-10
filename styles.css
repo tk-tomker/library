@@ -72,3 +72,20 @@ select:hover, option:hover{
   .bg-blue {
     background-color: #306dc7;
 }
+.catalog{
+    padding: 30px;
+    margin: 10px;
+    margin-top: 0px;
+    margin-left: 0px;
+    margin-right: 0px;
+    background-color: #29b1db65;
+}
+
+table{
+    width: 100%;
+}
+
+td, th{
+    margin: 5px;
+    border: 1px solid black;
+}
