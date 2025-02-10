@@ -99,7 +99,7 @@ $current_page = basename($_SERVER['PHP_SELF']);
                         echo "<div class='alert alert-danger'>" . $_SESSION['login_error'] . "</div>";
                     }
                     elseif (isset($_SESSION['message1'])) {
-                        echo "<div class='alert alert-danger'>" . $_SESSION['message'] . "</div>";
+                        echo "<div class='alert alert-danger'>" . $_SESSION['message1'] . "</div>";
                     }
                 ?>
                 <form action="loginprocess.php" method= "POST">
