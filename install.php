@@ -26,6 +26,12 @@ $stmt->execute();
 $stmt->closeCursor();
 echo("tblpupils created");
 
+$stmt = $conn->prepare("INSERT INTO tblpupils (username, password, role) VALUES 
+('admin', 'password', 1)");
+$stmt->execute();
+$stmt->closeCursor();
+echo("admin added");
+
 $stmt = $conn->prepare("DROP TABLE IF EXISTS tblhouse;
 CREATE TABLE tblhouse
 (house VARCHAR(20)  PRIMARY KEY,
