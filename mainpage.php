@@ -22,6 +22,7 @@
         margin: 5px;
         border: 2px solid black;
         text-align: center;
+        padding: 2px;
     }
     thead{
         text-align: center;
@@ -36,7 +37,7 @@
             background-color: rgba(0, 255, 242, 0.28);
         }
         img{
-            width:50%;
+            width:30%;
         }
     
 </style>
