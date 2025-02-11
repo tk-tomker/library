@@ -35,6 +35,9 @@
         tr:hover {
             background-color: rgba(0, 255, 242, 0.28);
         }
+        img{
+            width:50%;
+        }
     
 </style>
 
