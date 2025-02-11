@@ -44,7 +44,8 @@ title VARCHAR(50) NOT NULL,
 booklength INT(4) NOT NULL,
 bookstatus  VARCHAR(10) NOT NULL,
 genre VARCHAR(20) NOT NULL,
-dateadded VARCHAR(20) NOT NULL
+dateadded VARCHAR(20) NOT NULL,
+image VARCHAR(255)
 )"
 );
 $stmt->execute();

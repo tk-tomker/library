@@ -102,7 +102,7 @@
     </script>
 <?php endif; ?>
     </div>
-
+<?php if (isset($_SESSION["pupilid"])){?>
 <div class="viewloans" align="center">
         <h2>Current Loans</h2>
         <br>
@@ -113,9 +113,9 @@
         <select name="booktoreturn">
         <?php
 
-            include_once("connection.php");
+            /* include_once("connection.php");
             session_start(); 
-
+ */
             if (!isset($_SESSION['pupilid'])) {
                 die("Error: Pupil ID is not set in the session.");
             }
@@ -150,8 +150,9 @@
         
         <input type="submit" name="submit" value="Return Book" class="btn">
         </form>
+
 </div>
-    
+<?php }?>    
 <div class="catalog" align="center">
     <h2>Our Catalog</h2>
     <br>
@@ -166,11 +167,12 @@
                 <th>Book Status</th>
                 <th>Genre</th>
                 <th>Date Added</th>
+                <th>Image</th>
             </tr>
         </thead>
         <tbody>
             <?php
-            $stmt = $conn->prepare("SELECT bookid, author, title, booklength, bookstatus, genre, dateadded FROM tblbooks");
+            $stmt = $conn->prepare("SELECT bookid, author, title, booklength, bookstatus, genre, dateadded,image FROM tblbooks");
             $stmt->execute();
 
             while ($row = $stmt->fetch(PDO::FETCH_ASSOC))
@@ -182,6 +184,7 @@
                 echo '<td>' . $row['bookstatus'] . '</td>';
                 echo '<td>' . $row['genre'] . '</td>';
                 echo '<td>' . $row['dateadded'] . '</td>';
+                echo '<td>' . '<img src="images/' . $row['image'] . '">' . '</td>';
                 
                 echo "</tr>"; 
                 echo '</tr>';

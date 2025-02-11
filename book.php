@@ -13,7 +13,7 @@
 
 <body>
 <?php include 'navbar.php';?>
-<form action="addbook.php" method ="post" >
+<form action="addbook.php" method ="post" enctype="multipart/form-data">
   Title: <input type="text" name="title"><br>
   Author:<input type="text" name="author"><br>
   No. Of Pages:<input type="number" name="booklength"><br>
@@ -34,9 +34,8 @@
         <option value="western">Western</option>
         <option value="cookbook">Cookbook</option>
     </select><br>
-  <!-- Add genres table to pick from -->
   Today's Date:<input type="date" name="dateadded"><br>
-  <!--Creates a drop down list-->
+  Image: <input type="file" id="picture" name="picture" accept="image/*"><br>
   <br>
 
   <input type="submit" value="Add Book">
