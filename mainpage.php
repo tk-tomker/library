@@ -51,9 +51,6 @@
         <h1>Library</h1>
         <p>Books available here</p>
     </div>
-    <div class="container">
-        <img src="">
-    </div>
 
     <div class="loanbooks" align="center">
         <h2>Loan a Book</h2>
